@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "created": "2025-08-01T09:37:31.888Z",
+  "author": "detomasi",
+  "settings": {
+    "defaultModel": "sonnet",
+    "validateOnSave": true,
+    "autoFormat": true
+  }
+}

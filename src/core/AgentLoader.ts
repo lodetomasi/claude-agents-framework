@@ -89,7 +89,7 @@ export class AgentLoader {
   /**
    * Watch for agent changes
    */
-  watch(callback: (event: 'add' | 'change' | 'remove', agent: Agent | string) => void): void {
+  watch(_callback: (event: 'add' | 'change' | 'remove', agent: Agent | string) => void): void {
     // Implementation would use chokidar or similar
     // Simplified for now
     console.log('Watching for agent changes...');

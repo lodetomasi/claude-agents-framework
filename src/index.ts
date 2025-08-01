@@ -12,5 +12,6 @@ export { AgentLoader } from './core/AgentLoader';
 export { AgentValidator } from './core/AgentValidator';
 export { AgentGenerator } from './generators/AgentGenerator';
 export { AgentTester } from './testing/AgentTester';
+export { ClaudeCodeIntegration } from './integrations/ClaudeCodeIntegration';
 export * from './types';
 export * from './utils';

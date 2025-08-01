@@ -90,6 +90,7 @@ export interface CreateAgentOptions {
   interactive?: boolean;
   template?: string;
   output?: string;
+  examples?: Array<{input: string; output: string}>;
 }
 
 export interface ValidateOptions {

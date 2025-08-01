@@ -169,7 +169,7 @@ export class AgentTester {
   /**
    * Create test file template
    */
-  async createTestTemplate(agentName: string, outputPath: string): Promise<void> {
+  async createTestTemplate(_agentName: string, outputPath: string): Promise<void> {
     const template: AgentTestCase[] = [
       {
         name: 'Test case 1',

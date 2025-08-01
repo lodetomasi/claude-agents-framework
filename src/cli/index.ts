@@ -8,6 +8,8 @@ import { validateCommand } from './commands/validate';
 import { testCommand } from './commands/test';
 import { listCommand } from './commands/list';
 import { initCommand } from './commands/init';
+import { deployCommand } from './commands/deploy';
+import { syncCommand } from './commands/sync';
 
 const program = new Command();
 
@@ -30,6 +32,8 @@ program.addCommand(createCommand);
 program.addCommand(validateCommand);
 program.addCommand(testCommand);
 program.addCommand(listCommand);
+program.addCommand(deployCommand);
+program.addCommand(syncCommand);
 
 // Error handling
 program.exitOverride();

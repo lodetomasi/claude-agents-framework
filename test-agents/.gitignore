@@ -1,0 +1,5 @@
+# Claude Agents
+*.log
+*.tmp
+.DS_Store
+node_modules/

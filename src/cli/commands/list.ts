@@ -1,7 +1,6 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { AgentManager } from '../../core/AgentManager';
-import Table from 'cli-table3';
 
 export const listCommand = new Command('list')
   .description('List all available agents')
@@ -48,26 +47,27 @@ export const listCommand = new Command('list')
         console.log(JSON.stringify(output, null, 2));
       } else {
         // Table output
-        const table = new Table({
-          head: ['Name', 'Description', 'Model', 'Tags'],
-          colWidths: [25, 50, 10, 20],
-          style: {
-            head: ['cyan']
-          }
-        });
+        console.log(chalk.cyan('\nAvailable Agents:\n'));
+        console.log(chalk.gray('─'.repeat(100)));
+        console.log(
+          chalk.cyan('Name'.padEnd(25)) +
+          chalk.cyan('Description'.padEnd(50)) +
+          chalk.cyan('Model'.padEnd(10)) +
+          chalk.cyan('Tags')
+        );
+        console.log(chalk.gray('─'.repeat(100)));
 
         for (const agent of agents) {
-          table.push([
-            chalk.green(agent.name),
-            agent.description.length > 47 
-              ? agent.description.substring(0, 47) + '...'
-              : agent.description,
-            getModelBadge(agent.model),
-            (agent.metadata.tags || []).join(', ')
-          ]);
+          const name = chalk.green(agent.name.padEnd(24));
+          const desc = (agent.description.length > 47 
+            ? agent.description.substring(0, 47) + '...'
+            : agent.description).padEnd(49);
+          const model = getModelBadge(agent.model).padEnd(20);
+          const tags = (agent.metadata.tags || []).join(', ');
+          
+          console.log(`${name} ${desc} ${model} ${tags}`);
         }
-
-        console.log(table.toString());
+        console.log(chalk.gray('─'.repeat(100)));
 
         // Stats
         const stats = manager.getStats();
@@ -96,23 +96,4 @@ function getModelBadge(model: string): string {
     default:
       return chalk.gray(model);
   }
-}
-
-// Import cli-table3 types
-declare module 'cli-table3' {
-  interface TableConstructorOptions {
-    head?: string[];
-    colWidths?: number[];
-    style?: {
-      head?: string[];
-    };
-  }
-
-  class Table {
-    constructor(options?: TableConstructorOptions);
-    push(row: any[]): void;
-    toString(): string;
-  }
-
-  export = Table;
 }
