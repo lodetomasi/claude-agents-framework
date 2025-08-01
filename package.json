@@ -4,6 +4,9 @@
   "description": "⚡ Build, test, and deploy specialized AI agents for Claude Code. TypeScript SDK with CLI tools, templates, and validation. Transform Claude into your personal tech team.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "claude-agents": "./dist/cli/index.js"
   },

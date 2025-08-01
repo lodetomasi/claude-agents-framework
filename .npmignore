@@ -1,0 +1,40 @@
+# Source files (only ship compiled)
+src/
+*.ts
+!*.d.ts
+
+# Development files
+.git/
+.github/
+.vscode/
+.idea/
+*.log
+*.tmp
+.DS_Store
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+coverage/
+.nyc_output/
+
+# Config files
+tsconfig.json
+.eslintrc*
+.prettierrc*
+jest.config.js
+
+# Documentation source
+docs/
+
+# Examples (optional - you might want to include these)
+# examples/
+
+# Local test agents
+test-agents/
+my-test-agents/
+
+# Build artifacts
+*.tsbuildinfo
